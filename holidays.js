@@ -1,4 +1,5 @@
-// TODO: Your imports here.
+// TODO: Add more imports here.
+import promptSync from 'prompt-sync';
 
 /**
  * Given a starting year and an ending year:
@@ -41,8 +42,9 @@ export function holidaysInRange(start, end) {
  * This function is imported and called in main.js
  */
 export function main() {
-  const start = 1970; // FIXME use prompt-sync and parseInt()
-  const end = 1972; // FIXME use prompt-sync and parseInt()
+  const prompt = promptSync();
+  const start = 1970; // FIXME use prompt and parseInt()
+  const end = 1972; // FIXME use prompt and parseInt()
 
   const holidays = holidaysInRange(start, end);
   console.log(holidays);
