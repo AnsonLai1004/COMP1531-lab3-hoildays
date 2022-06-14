@@ -1,6 +1,18 @@
 import { holidaysInRange, main } from './holidays';
 
-test('Example - replace me', () => {
+describe('invalid input', () => {
+  test.each`
+    input       | expectedResult
+    // not at least 325
+    ${311, 360} | ${[]}
+    // start strictly greater than end
+    ${1970,325}| ${[]}
+  `('Invalid input to $expectedResult', ({ input, expectedResult }) => {
+    expect(holidaysInRange(input)).toStrictEqual(expectedResult)
+  })
+})
+
+test('valid input', () => {
   expect(holidaysInRange(1970, 1972)).toStrictEqual([
     {
       valentinesDay: 'Saturday, 14.02.1970',
